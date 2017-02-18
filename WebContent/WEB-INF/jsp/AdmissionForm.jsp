@@ -7,8 +7,8 @@
 <title>Student Admission</title>
 </head>
 <body>
-${commonObject}
-<form action="/AnnotatedSpringMVC/studentAdmission" method="post">
+<h1> ${commonObject} </h1>
+<form action="/AnnotatedSpringMVC/studentAdmission/requestParamMultiDemo" method="post">
 <table>
 <tr>
 <td>First Name</td>
@@ -17,6 +17,20 @@ ${commonObject}
 <tr>
 <td>Subject Name</td>
 <td><input type="text" name="subjectName" value=""></td>
+</tr>
+<tr>
+<td>Roll Number</td>
+<td><input type="text" name="rollNo" value=""></td>
+</tr>
+<tr>
+<td>Class</td>
+<td><input type="text" name="className" value=""></td>
+<td>Section</td>
+<td><input type="text" name="section" value=""></td>
+</tr>
+<tr>
+<td>School</td>
+<td><input type="text" name="schoolName" value=""></td>
 </tr>
 <tr><td><input type="submit" value="Submit"></td></tr>
 </table>

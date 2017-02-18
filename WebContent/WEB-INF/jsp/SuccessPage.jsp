@@ -7,9 +7,17 @@
 <title>Success Page</title>
 </head>
 <body>
-<h1>Success!!</h1>
-
-${objStudent.studentName} is successfully registered!!
-
+<h1>${headerMessage}</h1>
+<h3>Success!!</h3>
+<p>
+${objStudent.studentName} is successfully registered!!<br />
+Details:<br />
+Name: ${objStudent.studentName}<br />
+Subject: ${objStudent.subjectName}<br />
+Roll No: ${objStudent.rollNo}<br />
+Class: ${objStudent.className}<br />
+Section: ${objStudent.section}<br />
+School: ${objStudent.schoolName}<br />
+</p>
 </body>
 </html>
