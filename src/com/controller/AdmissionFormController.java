@@ -1,9 +1,15 @@
 package com.controller;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +20,14 @@ import com.bean.Student;
 
 @Controller
 public class AdmissionFormController {
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder)
+	{
+		//binder.setDisallowedFields(new String[]{"dateOfBirth"});
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		binder.registerCustomEditor(Date.class, "dateOfBirth",new CustomDateEditor(sdf, false));
+	}
 	
 	
 	@RequestMapping(value="/studentAdmission/requestParamDemo", method=RequestMethod.POST)
@@ -40,8 +54,14 @@ public class AdmissionFormController {
 	}
 	
 	@RequestMapping(value="/studentAdmission", method=RequestMethod.POST)
-	public ModelAndView submitAdmissionForm(@ModelAttribute("objStudent") Student objStudent)
+	public ModelAndView submitAdmissionForm(@ModelAttribute("objStudent") Student objStudent, BindingResult bindingResult)
 	{
+		if(bindingResult.hasErrors())
+		{
+			ModelAndView modelAndView = new ModelAndView("AdmissionForm");
+			return modelAndView;
+		}
+		
 		ModelAndView objModelAndView = new ModelAndView("SuccessPage");
 		System.out.println("Student Name : "+objStudent.getStudentName());
 		System.out.println("Student Subject Name : "+objStudent.getSubjectName());

@@ -13,11 +13,15 @@
 ${objStudent.studentName} is successfully registered!!<br />
 Details:<br />
 Name: ${objStudent.studentName}<br />
+Date Of Birth: ${objStudent.dateOfBirth}<br />
 Subject: ${objStudent.subjectName}<br />
 Roll No: ${objStudent.rollNo}<br />
 Class: ${objStudent.className}<br />
 Section: ${objStudent.section}<br />
 School: ${objStudent.schoolName}<br />
+Skills: ${objStudent.studentSkills}<br />
+Street Address: ${objStudent.address.addressLine}<br />
+City: ${objStudent.address.city}<br />
 </p>
 </body>
 </html>

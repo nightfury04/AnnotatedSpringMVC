@@ -1,15 +1,38 @@
 package com.bean;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Student {
 
-	String studentName;
-	String subjectName;
-	int rollNo;
-	String className;
-	String section;
-	String schoolName;
+	private String studentName;
+	private String subjectName;
+	private int rollNo;
+	private String className;
+	private String section;
+	private String schoolName;
+	private ArrayList<String> studentSkills;
+	private Address address;
+	private Date dateOfBirth;
 	
-	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public ArrayList<String> getStudentSkills() {
+		return studentSkills;
+	}
+	public void setStudentSkills(ArrayList<String> studentSkills) {
+		this.studentSkills = studentSkills;
+	}
 	public String getStudentName() {
 		return studentName;
 	}
